@@ -1,0 +1,15 @@
+version: "3"
+services:
+  producer:
+    container_name: emprestimo
+    build:
+      context: ./emprestimo
+      dockerfile: Dockerfile
+    image: emprestimo
+    ports:
+      - "8080:8080"
+    networks:
+      - consumer-producer
+
+networks:
+  consumer-producer:
