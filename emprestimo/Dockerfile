@@ -13,11 +13,3 @@ FROM openjdk:8-jdk-alpine
 COPY --from=build /home/app/target/*.jar /usr/local/lib/demo.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/demo.jar"]
-
-#FROM openjdk:8-jdk-alpine
-#RUN addgroup -S spring && adduser -S spring -G spring
-#USER spring:spring
-#ARG JAR_FILE=target/*.jar
-#COPY ${JAR_FILE} app.jar
-#ENTRYPOINT ["java","-jar","/app.jar"]
-
