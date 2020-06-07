@@ -1,10 +1,10 @@
 package nossagrana.emprestimo.controller;
 
 import nossagrana.emprestimo.dto.EmprestimoDTO;
+import nossagrana.emprestimo.dto.SolicitarEmprestimoDTO;
 import nossagrana.emprestimo.service.EmprestimoService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +19,13 @@ public class EmprestimoController {
     }
 
     @GetMapping
-    public List<EmprestimoDTO> getAll() {
+    public List<EmprestimoDTO> listarTodos() {
         return this.service.getAll();
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void solicitarEmprestimo(@RequestBody SolicitarEmprestimoDTO solicitarEmprestimoDTO) {
+        service.create(solicitarEmprestimoDTO);
     }
 }

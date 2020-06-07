@@ -1,5 +1,7 @@
 package nossagrana.emprestimo.entity;
 
+import nossagrana.emprestimo.dto.SolicitarEmprestimoDTO;
+
 import java.time.ZonedDateTime;
 
 public class Emprestimo {
@@ -7,14 +9,19 @@ public class Emprestimo {
     private ZonedDateTime dataVencimento;
     private ZonedDateTime dataBase;
     private double taxaJuros;
-    private double taxaCET;
 
-    public Emprestimo(double montante, ZonedDateTime dataVencimento, ZonedDateTime dataBase, double taxaJuros, double taxaCET) {
+    public Emprestimo(double montante, ZonedDateTime dataVencimento, ZonedDateTime dataBase, double taxaJuros) {
         this.montante = montante;
         this.dataVencimento = dataVencimento;
         this.dataBase = dataBase;
         this.taxaJuros = taxaJuros;
-        this.taxaCET = taxaCET;
+    }
+
+    public Emprestimo(SolicitarEmprestimoDTO solicitarEmprestimoDTO) {
+        this.montante = solicitarEmprestimoDTO.getMontante();
+        this.dataVencimento = solicitarEmprestimoDTO.getDataVencimento();
+        this.dataBase = ZonedDateTime.now();
+        this.taxaJuros = 0.40;
     }
 
     public double getMontante() {
@@ -50,10 +57,6 @@ public class Emprestimo {
     }
 
     public double getTaxaCET() {
-        return taxaCET;
-    }
-
-    public void setTaxaCET(double taxaCET) {
-        this.taxaCET = taxaCET;
+        return taxaJuros + 0.4;
     }
 }
