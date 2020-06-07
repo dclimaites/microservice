@@ -1,5 +1,6 @@
 package nossagrana.emprestimo.controller;
 
+import nossagrana.emprestimo.dto.AtualizarEmprestimoDTO;
 import nossagrana.emprestimo.dto.EmprestimoDTO;
 import nossagrana.emprestimo.dto.SolicitarEmprestimoDTO;
 import nossagrana.emprestimo.service.EmprestimoService;
@@ -27,5 +28,15 @@ public class EmprestimoController {
     @ResponseStatus(HttpStatus.CREATED)
     public void solicitarEmprestimo(@RequestBody SolicitarEmprestimoDTO solicitarEmprestimoDTO) {
         service.create(solicitarEmprestimoDTO);
+    }
+
+    @PutMapping("{id}")
+    public EmprestimoDTO atualizarEmprestimo(@PathVariable String id, @RequestBody AtualizarEmprestimoDTO atualizarEmprestimoDTO) {
+        return service.update(id, atualizarEmprestimoDTO);
+    }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable String id) {
+        service.delete(id);
     }
 }
