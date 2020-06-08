@@ -49,7 +49,7 @@ public class EmprestimoServiceImpl implements EmprestimoService {
         Emprestimo emprestimo = getEmprestimo(id);
 
         emprestimo.setMontante(atualizarEmprestimoDTO.getMontante());
-        emprestimo.setDataVencimento(atualizarEmprestimoDTO.getDataVencimento());
+        emprestimo.setDataVencimento(atualizarEmprestimoDTO.getDataVencimento().toLocalDate());
 
        return saveAndGetEmprestimoDTO(emprestimo);
     }

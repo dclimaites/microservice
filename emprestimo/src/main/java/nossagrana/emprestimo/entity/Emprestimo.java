@@ -2,17 +2,19 @@ package nossagrana.emprestimo.entity;
 
 import nossagrana.emprestimo.dto.SolicitarEmprestimoDTO;
 
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 public class Emprestimo {
     private double montante;
-    private ZonedDateTime dataVencimento;
-    private ZonedDateTime dataBase;
+    private LocalDate dataVencimento;
+    private LocalDate dataBase;
     private double taxaJuros;
 
     public Emprestimo() {}
 
-    public Emprestimo(double montante, ZonedDateTime dataVencimento, ZonedDateTime dataBase, double taxaJuros) {
+    public Emprestimo(double montante, LocalDate dataVencimento, LocalDate dataBase, double taxaJuros) {
         this.montante = montante;
         this.dataVencimento = dataVencimento;
         this.dataBase = dataBase;
@@ -21,8 +23,8 @@ public class Emprestimo {
 
     public Emprestimo(SolicitarEmprestimoDTO solicitarEmprestimoDTO) {
         this.montante = solicitarEmprestimoDTO.getMontante();
-        this.dataVencimento = solicitarEmprestimoDTO.getDataVencimento();
-        this.dataBase = ZonedDateTime.now();
+        this.dataVencimento = solicitarEmprestimoDTO.getDataVencimento().toLocalDate();
+        this.dataBase = LocalDate.now();
         this.taxaJuros = 0.40;
     }
 
@@ -34,19 +36,19 @@ public class Emprestimo {
         this.montante = montante;
     }
 
-    public ZonedDateTime getDataVencimento() {
+    public LocalDate getDataVencimento() {
         return dataVencimento;
     }
 
-    public void setDataVencimento(ZonedDateTime dataVencimento) {
+    public void setDataVencimento(LocalDate dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
 
-    public ZonedDateTime getDataBase() {
+    public LocalDate getDataBase() {
         return dataBase;
     }
 
-    public void setDataBase(ZonedDateTime dataBase) {
+    public void setDataBase(LocalDate dataBase) {
         this.dataBase = dataBase;
     }
 
