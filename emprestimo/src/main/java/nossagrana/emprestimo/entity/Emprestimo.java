@@ -10,6 +10,8 @@ public class Emprestimo {
     private ZonedDateTime dataBase;
     private double taxaJuros;
 
+    public Emprestimo() {}
+
     public Emprestimo(double montante, ZonedDateTime dataVencimento, ZonedDateTime dataBase, double taxaJuros) {
         this.montante = montante;
         this.dataVencimento = dataVencimento;
