@@ -20,8 +20,8 @@ public class EmprestimoDTO {
     }
 
     public EmprestimoDTO(Emprestimo entity) {
-        this.dataBase = entity.getDataBase();
-        this.dataVencimento = entity.getDataVencimento();
+        this.dataBase = ZonedDateTime.from(entity.getDataBase());
+        this.dataVencimento = ZonedDateTime.from(entity.getDataVencimento());
         this.montante = entity.getMontante();
         this.taxaCET = entity.getTaxaCET();
         this.taxaJuros = entity.getTaxaJuros();
