@@ -8,21 +8,45 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - nossagrana
+      - nossagrana-emprestimo
 
   emprestimo-service:
     container_name: emprestimo-service
-    build:
-      context: ./emprestimo
-      dockerfile: Dockerfile
-    image: emprestimo
+    # build:
+    #   context: ./emprestimo
+    #   dockerfile: Dockerfile
+    image: diegoclimaites/nossagrana-emprestimo
     depends_on:
       - emprestimo-service-db
     restart: always
     ports:
       - "8081:8081"
     networks:
-      - nossagrana
+      - nossagrana-emprestimo
+
+  usuario-service-db:
+    container_name: usuario-db
+    image: mongo:3.4
+    restart: always
+    ports:
+      - "27018:27018"
+    networks:
+      - nossagrana-usuario
+
+  usuario-service:
+    container_name: usuario-service
+    # build:
+    #   context: ./emprestimo
+    #   dockerfile: Dockerfile
+    image: diegoclimaites/nossagrana-usuario
+    depends_on:
+      - usuario-service-db
+    restart: always
+    ports:
+      - "8085:8085"
+    networks:
+      - nossagrana-usuario
 
 networks:
-  nossagrana:
+  nossagrana-emprestimo:
+  nossagrana-usuario:
