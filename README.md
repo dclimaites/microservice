@@ -9,6 +9,6 @@ Leia a WIKI para mais informações sobre a arquitetura e design do projeto.
 
 <ol>
   <li>Micro serviço de usuário: https://github.com/dclimaites/microservice-usuario</li>
-  <li>Micro serviço de Empréstimo:</li>
+  <li>Micro serviço de Empréstimo: https://github.com/dclimaites/microservice-emprestimo</li>
   <li>Front-end em angular: https://github.com/dclimaites/microservice-frontend</li>
 <ol>
