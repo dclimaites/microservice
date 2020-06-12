@@ -11,6 +11,9 @@ public class SolicitarEmprestimoDTO {
         this.dataVencimento = dataVencimento;
     }
 
+    public SolicitarEmprestimoDTO() {
+    }
+
     public double getMontante() {
         return montante;
     }
