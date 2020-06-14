@@ -27,6 +27,7 @@ services:
   usuario-service-db:
     container_name: usuario-db
     image: mongo:3.4
+    command: mongod --port 27018
     restart: always
     ports:
       - "27018:27018"
