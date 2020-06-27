@@ -48,6 +48,18 @@ services:
     networks:
       - nossagrana-usuario
 
+  nossagrana-ui:
+    container_name: nossagrana-ui
+    # build:
+    #   context: ../microservice-frontend/grana-nossa-frontend
+    #   dockerfile: Dockerfile
+    image: diegoclimaites/nossagrana-frontend
+    depends_on:
+      - usuario-service-db
+    restart: always
+    ports:
+      - "8080:80"
+
 networks:
   nossagrana-emprestimo:
   nossagrana-usuario:
