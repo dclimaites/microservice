@@ -27,6 +27,7 @@ services:
   usuario-service-db:
     container_name: usuario-db
     image: mongo:3.4
+    command: mongod --port 27018
     restart: always
     ports:
       - "27018:27018"
@@ -46,6 +47,18 @@ services:
       - "8085:8085"
     networks:
       - nossagrana-usuario
+
+  nossagrana-ui:
+    container_name: nossagrana-ui
+    # build:
+    #   context: ../microservice-frontend/grana-nossa-frontend
+    #   dockerfile: Dockerfile
+    image: diegoclimaites/nossagrana-frontend
+    depends_on:
+      - usuario-service-db
+    restart: always
+    ports:
+      - "8080:80"
 
 networks:
   nossagrana-emprestimo:
