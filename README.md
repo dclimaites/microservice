@@ -13,10 +13,9 @@ Leia a WIKI para mais informações sobre a arquitetura e design do projeto.
   <li>Front-end em angular: https://github.com/dclimaites/microservice-frontend</li>
 <ol>
 
-<b>Para acessar o sistema, por padrão, inserimos o login abaixo</b>
+
 <p>
+  <b>Para acessar o sistema, por padrão, inserimos o login abaixo</b>
   Login: admin@admin.com
-</p>
-<p>
-  Senha: admin@admin.com
+  Senha: admin
 </p>
