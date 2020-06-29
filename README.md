@@ -16,6 +16,10 @@ Leia a WIKI para mais informações sobre a arquitetura e design do projeto.
 
 <p>
   <b>Para acessar o sistema, por padrão, inserimos o login abaixo</b>
+</p>
+<p>
   Login: admin@admin.com
+</p>
+<p>
   Senha: admin
 </p>
