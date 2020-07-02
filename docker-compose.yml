@@ -59,6 +59,9 @@ services:
     restart: always
     ports:
       - "8080:80"
+    networks:
+      - nossagrana-usuario
+      - nossagrana-emprestimo
 
 networks:
   nossagrana-emprestimo:
