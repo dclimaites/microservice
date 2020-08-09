@@ -1,25 +1,24 @@
 # microservice
-Este repositório contém o microserviço do APP a Grana é nossa, será utilizado também para apresentar o trabalho de Microserviço.
+Este repositório contém o microserviço do APP **A Grana é Nossa**. 
+Também representa os trabalhos relacionados a startup one Fiap.
 
+### Running
+![](docs/apresentacao.gif)
 
-Leia a WIKI para mais informações sobre a arquitetura e design do projeto.
+### Arquitetura
+![](docs/A_grana_e_nossa.png)
 
-<p>https://github.com/dclimaites/microservice/wiki</p>
+### Domain Story Telling
+![](docs/Domain_story_telling_A%20Grana%20é%20Nossa_2020-05-20_v2.png)
 
+- Micro serviço de usuário: https://github.com/bruno-vieira-farias/microservice-usuario
+- Micro serviço de Empréstimo: https://github.com/bruno-vieira-farias/microservice-emprestimo
+- Micro serviço de envio de email: https://github.com/bruno-vieira-farias/microservice-emailsender
+- Front-end em angular: https://github.com/dclimaites/microservice-frontend
 
-<ol>
-  <li>Micro serviço de usuário: https://github.com/dclimaites/microservice-usuario</li>
-  <li>Micro serviço de Empréstimo: https://github.com/dclimaites/microservice-emprestimo</li>
-  <li>Front-end em angular: https://github.com/dclimaites/microservice-frontend</li>
-<ol>
-
-
-<p>
-  <b>Para acessar o sistema, por padrão, inserimos o login abaixo</b>
-</p>
-<p>
-  Login: admin@admin.com
-</p>
-<p>
-  Senha: admin
-</p>
+#### No Front-End, utilize o usuário pré-configurado para acesso ao sistema.
+ Login: `admin@admin.com`
+ Senha: `admin`
+ 
+### Run
+  Para subir toda a infra-estrutura execute `sudo docker-compose up` no diretório raiz deste projeto.

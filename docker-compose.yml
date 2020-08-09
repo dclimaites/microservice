@@ -3,50 +3,50 @@ services:
 
   emprestimo-service-db:
     container_name: emprestimo-db
-    image: mongo:3.4
+    image: mongo:latest
     restart: always
     ports:
       - "27017:27017"
     networks:
-      - nossagrana-emprestimo
+      - nossagrana
 
   emprestimo-service:
     container_name: emprestimo-service
-    # build:
-    #   context: ./emprestimo
-    #   dockerfile: Dockerfile
-    image: diegoclimaites/nossagrana-emprestimo
+#    build:
+#       context: ../microservice-emprestimo/emprestimo/
+#       dockerfile: Dockerfile
+    image: brunovieirafarias/microservico-emprestimo
     depends_on:
       - emprestimo-service-db
     restart: always
     ports:
       - "8081:8081"
     networks:
-      - nossagrana-emprestimo
+      - nossagrana
 
   usuario-service-db:
     container_name: usuario-db
-    image: mongo:3.4
+    image: mongo:latest
     command: mongod --port 27018
     restart: always
     ports:
       - "27018:27018"
     networks:
-      - nossagrana-usuario
+      - nossagrana
 
   usuario-service:
     container_name: usuario-service
     # build:
     #   context: ./emprestimo
     #   dockerfile: Dockerfile
-    image: diegoclimaites/nossagrana-usuario
+    image: brunovieirafarias/microservico-usuario
     depends_on:
       - usuario-service-db
     restart: always
     ports:
       - "8085:8085"
     networks:
-      - nossagrana-usuario
+      - nossagrana
 
   nossagrana-ui:
     container_name: nossagrana-ui
@@ -60,9 +60,19 @@ services:
     ports:
       - "8080:80"
     networks:
-      - nossagrana-usuario
-      - nossagrana-emprestimo
+      - nossagrana
+
+  emailsender-service:
+    container_name: emailsender-service
+    # build:
+    #   context: ./emprestimo
+    #   dockerfile: Dockerfile
+    image: brunovieirafarias/microservico-emailsender
+    restart: always
+    ports:
+      - "8082:8082"
+    networks:
+      - nossagrana
 
 networks:
-  nossagrana-emprestimo:
-  nossagrana-usuario:
+  nossagrana:
