@@ -53,7 +53,7 @@ services:
     # build:
     #   context: ../microservice-frontend/grana-nossa-frontend
     #   dockerfile: Dockerfile
-    image: diegoclimaites/nossagrana-frontend
+    image: brunovieirafarias/nossagrana-frontend
     depends_on:
       - usuario-service-db
     restart: always
