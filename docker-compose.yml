@@ -65,4 +65,3 @@ services:
 networks:
   nossagrana:
     external: true
-    attachable: true
