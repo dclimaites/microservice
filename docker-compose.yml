@@ -4,6 +4,11 @@ services:
   emprestimo-service-db:
     container_name: emprestimo-db
     image: mongo:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
     restart: always
     ports:
       - "27017:27017"
@@ -16,6 +21,11 @@ services:
 #       context: ../microservice-emprestimo/emprestimo/
 #       dockerfile: Dockerfile
     image: brunovieirafarias/microservico-emprestimo
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
     depends_on:
       - emprestimo-service-db
     restart: always
@@ -27,6 +37,11 @@ services:
   usuario-service-db:
     container_name: usuario-db
     image: mongo:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
     command: mongod --port 27018
     restart: always
     ports:
@@ -40,6 +55,11 @@ services:
     #   context: ./emprestimo
     #   dockerfile: Dockerfile
     image: brunovieirafarias/microservico-usuario
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
     depends_on:
       - usuario-service-db
     restart: always
@@ -54,6 +74,11 @@ services:
     #   context: ../microservice-frontend/grana-nossa-frontend
     #   dockerfile: Dockerfile
     image: diegoclimaites/nossagrana-frontend
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
     depends_on:
       - usuario-service-db
     restart: always
@@ -68,6 +93,11 @@ services:
     #   context: ./emprestimo
     #   dockerfile: Dockerfile
     image: brunovieirafarias/microservico-emailsender
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
     restart: always
     ports:
       - "8082:8082"
