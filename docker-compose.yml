@@ -8,7 +8,7 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - nossagrana-emprestimo
+      - nossagrana
 
   emprestimo-service:
     container_name: emprestimo-service
@@ -22,7 +22,7 @@ services:
     ports:
       - "8081:8081"
     networks:
-      - nossagrana-emprestimo
+      - nossagrana
 
   usuario-service-db:
     container_name: usuario-db
@@ -32,7 +32,7 @@ services:
     ports:
       - "27018:27018"
     networks:
-      - nossagrana-usuario
+      - nossagrana
 
   usuario-service:
     container_name: usuario-service
@@ -46,7 +46,7 @@ services:
     ports:
       - "8085:8085"
     networks:
-      - nossagrana-usuario
+      - nossagrana
 
   nossagrana-ui:
     container_name: nossagrana-ui
@@ -60,9 +60,8 @@ services:
     ports:
       - "8080:80"
     networks:
-      - nossagrana-usuario
-      - nossagrana-emprestimo
+      - nossagrana
 
 networks:
-  nossagrana-emprestimo:
-  nossagrana-usuario:
+  nossagrana:
+    external: true
