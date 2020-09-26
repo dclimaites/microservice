@@ -83,7 +83,7 @@ services:
       - usuario-service-db
     restart: always
     ports:
-      - "8080:80"
+      - "8083:80"
     networks:
       - nossagrana
 
@@ -105,5 +105,4 @@ services:
       - nossagrana
 
 networks:
-  nossagrana:
-    external: true
+  nossagrana:    
