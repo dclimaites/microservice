@@ -65,6 +65,8 @@ services:
     restart: always
     ports:
       - "8085:8085"
+    environment: 
+      USUARIO_DB_HOST: usuario-service-db
     networks:
       - nossagrana
 
@@ -103,6 +105,7 @@ services:
       - "8082:8082"
     networks:
       - nossagrana
-
+ 
 networks:
   nossagrana:    
+    external: true
