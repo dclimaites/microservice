@@ -107,9 +107,5 @@ services:
       - nossagrana
  
 networks:
-<<<<<<< HEAD
   nossagrana:    
-=======
-  nossagrana:
->>>>>>> e669161b9aaa659bdd0402fa98382e164031b2c8
     external: true
