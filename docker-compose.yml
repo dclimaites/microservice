@@ -75,7 +75,7 @@ services:
     # build:
     #   context: ../microservice-frontend/grana-nossa-frontend
     #   dockerfile: Dockerfile
-    image: diegoclimaites/nossagrana-frontend
+    image: brunovieirafarias/microservico-frontend
     deploy:
       replicas: 1
       restart_policy:
@@ -86,6 +86,8 @@ services:
     restart: always
     ports:
       - "8083:80"
+    environment: 
+      USUARIO_SERVICE_HOST: usuario-service
     networks:
       - nossagrana
 
