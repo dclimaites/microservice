@@ -31,6 +31,11 @@ services:
     restart: always
     ports:
       - "8081:8081"
+    environment: 
+      EMPRESTIMO_DB_HOST: emprestimo-service-db
+      EMPRESTIMO_DB_PORT: 27017
+      USUARIO_SERVICE_HOST: usuario-service
+      USUARIO_SERVICE_PORT: 8085    
     networks:
       - nossagrana
 
@@ -67,6 +72,7 @@ services:
       - "8085:8085"
     environment: 
       USUARIO_DB_HOST: usuario-service-db
+      USUARIO_DB_PORT: 27018
     networks:
       - nossagrana
 
@@ -75,7 +81,7 @@ services:
     # build:
     #   context: ../microservice-frontend/grana-nossa-frontend
     #   dockerfile: Dockerfile
-    image: brunovieirafarias/microservico-frontend
+    image: diegoclimaites/nossagrana-frontend
     deploy:
       replicas: 1
       restart_policy:
@@ -86,8 +92,6 @@ services:
     restart: always
     ports:
       - "8083:80"
-    environment: 
-      USUARIO_SERVICE_HOST: usuario-service
     networks:
       - nossagrana
 
