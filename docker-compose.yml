@@ -1,6 +1,17 @@
 version: "3"
 services:
 
+  visualizador: 
+    image: dockersamples/visualizer 
+    volumes: 
+      - "/var/run/docker.sock:/var/run/docker.sock" 
+    ports: 
+      - 8080:8080 
+    deploy: 
+      placement: 
+        constraints: 
+          - node.role == manager 
+
   emprestimo-service-db:
     container_name: emprestimo-db
     image: mongo:latest
