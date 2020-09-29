@@ -21,4 +21,7 @@ Também representa os trabalhos relacionados a startup one Fiap.
  Senha: `admin`
  
 ### Run
-  Para subir toda a infra-estrutura execute `sudo docker-compose up` no diretório raiz deste projeto.
+  Para subir toda a infra-estrutura execute `docker-compose up` no diretório raiz deste projeto.
+  
+### Run on Docker Swarm Cluster
+  Para subir toda a infra-estrutura execute `docker stack deploy -c docker-compose-swarm.yml a_grana_e_nossa` no diretório raiz deste projeto.
