@@ -28,7 +28,7 @@ services:
   emprestimo-service:
     image: brunovieirafarias/microservico-emprestimo
     deploy:
-      replicas: 1
+      replicas: 2
       restart_policy:
         condition: on-failure
         max_attempts: 3
@@ -62,7 +62,7 @@ services:
   usuario-service:
     image: brunovieirafarias/microservico-usuario
     deploy:
-      replicas: 1
+      replicas: 2
       restart_policy:
         condition: on-failure
         max_attempts: 3
@@ -80,12 +80,13 @@ services:
   nossagrana-ui:
     image: diegoclimaites/nossagrana-frontend
     deploy:
-      replicas: 1
+      replicas: 2
       restart_policy:
         condition: on-failure
         max_attempts: 3
     depends_on:
-      - usuario-service-db
+      - usuario-service
+      - emprestimo-service
     restart: always
     ports:
       - "8083:80"
